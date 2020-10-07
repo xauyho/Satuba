@@ -1,0 +1,72 @@
+using System
+using System.Collections.Generic;
+
+namespace Satuba
+{
+  class Program
+  {
+      static void Main(string[] args)
+      {
+          Console.WriteLine("Satuba || Snack Shopping List Generator");
+          Console.WriteLine("by xauyho \n");
+          
+          RunGenerate();
+      }
+      
+      static void RunGenerate()
+      {
+          Console.WriteLine("How many items are needed?: ");
+          int intToBuy = Int32.Parse(Console.ReadLine());
+          
+          Console.WriteLine("\n -- 0 -- \n");
+          for (var i = 0; i < intToBuy; i++)
+          {
+              var rnd = new Random();
+              var shList = new List<string>
+              {
+                  "Pringles",
+                  "Walkers Six Pack",
+                  "McCoys Six Pack",
+                  "Chorizo Slices",
+                  "Tea Cakes",
+                  "Fox's Rounds",
+                  "Chocolate Fingers",
+                  "Crunchy Melts",
+                  "Magic Stars",
+                  "Dairy Milk - Wholenut Bar",
+                  "Ferrero Rochers",
+                  "Mikado",
+                  "Liebniz Biscuits",
+                  "Digestives",
+                  "Salted Popcorn",
+                  "Tenderstem Broccoli",
+                  "Halloumi"          
+              };
+              int index = rnd.Next(shList.Count);
+              
+              Console.WriteLine(shList[index]);          
+          }
+          Console.WriteLine("\n -- 0 -- \n");
+          EndOrContinue();
+      }
+      
+      static void EndOrContinue()
+      {
+          Console.WriteLine("Would you like to run again? [Y/N]: ");
+          string yn = Console.ReadLine();
+          
+          if (yn == "Y")
+          {
+              Console.WriteLine("Clearing the screen");
+              Console.Clear();
+              RunGenerate();
+          } 
+          else if (yn == "N") 
+          {
+              Console.WriteLine("Clearing the screen");
+              Console.Clear();
+              System.Environment.Exit(0);
+          }  
+      }
+  }
+}
